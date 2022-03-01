@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('social_media', {
       id: {

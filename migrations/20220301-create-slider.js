@@ -1,36 +1,35 @@
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    return migration.createTable('slider', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('slider', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       name: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       description: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       order: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       imageUrl: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
-    }).done(done);
+    });
   },
-  down: function(migration, DataTypes, done) {
-    return migration.dropTable('slider').done(done);
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('slider');
   },
 };

@@ -1,25 +1,24 @@
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    return migration.createTable('news', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('news', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       title: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       image: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       body: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       tagsId: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
         references: {
           model: 'tags',
@@ -28,8 +27,8 @@ module.exports = {
         },
       },
       keywordId: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
         references: {
           model: 'keyword',
@@ -38,8 +37,8 @@ module.exports = {
         },
       },
       categoryId: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
         references: {
           model: 'category',
@@ -49,15 +48,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
-    }).done(done);
+    });
   },
-  down: function(migration, DataTypes, done) {
-    return migration.dropTable('news').done(done);
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('news');
   },
 };

@@ -1,28 +1,27 @@
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    return migration.createTable('teams', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('teams', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       name: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       position: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       order: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       imageUrl: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       socialMediaId: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
         references: {
           model: 'socialMedia',
@@ -32,15 +31,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
-    }).done(done);
+    });
   },
   down: function(migration, DataTypes, done) {
-    return migration.dropTable('teams').done(done);
+    return migration.dropTable('teams');
   },
 };

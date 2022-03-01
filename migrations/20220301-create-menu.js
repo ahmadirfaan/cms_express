@@ -1,38 +1,37 @@
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    return migration.createTable('menu', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('menu', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       name: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       url: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       order: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       parentId: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
-    }).done(done);
+    });
   },
-  down: function(migration, DataTypes, done) {
-    return migration.dropTable('menu').done(done);
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('menu');
   },
 };

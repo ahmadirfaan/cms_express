@@ -1,37 +1,36 @@
 module.exports = {
-  up: function(migration, DataTypes, done) {
-    return migration.createTable('works', {
+  up: function(queryInterface, Sequelize) {
+    return queryInterface.createTable('works', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       name: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       description: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       order: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
       },
       imageUrl: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       workUrl: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE,
+        type: Sequelize.DATE,
       },
-    }).done(done);
+    })
   },
   down: function(migration, DataTypes, done) {
     return migration.dropTable('works').done(done);

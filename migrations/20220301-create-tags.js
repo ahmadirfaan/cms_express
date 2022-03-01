@@ -1,6 +1,6 @@
 module.exports = {
   up: function(migration, DataTypes, done) {
-    migration.createTable('tags', {
+    return migration.createTable('tags', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,6 +23,6 @@ module.exports = {
     }).done(done);
   },
   down: function(migration, DataTypes, done) {
-    migration.dropTable('tags').done(done);
+    return migration.dropTable('tags').done(done);
   },
 };

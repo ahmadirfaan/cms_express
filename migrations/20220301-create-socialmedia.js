@@ -1,6 +1,6 @@
 module.exports = {
   up: function(migration, DataTypes, done) {
-    migration.createTable('social_media', {
+    return migration.createTable('social_media', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -25,6 +25,6 @@ module.exports = {
     }).done(done);
   },
   down: function(migration, DataTypes, done) {
-    migration.dropTable('social_media').done(done);
+    return migration.dropTable('social_media').done(done);
   },
 };

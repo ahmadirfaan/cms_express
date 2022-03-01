@@ -1,15 +1,15 @@
-export default (sequelize, DataTypes) => {
+const {v4: uuidv4} = require('uuid');
+module.exports = (sequelize, DataTypes) => {
   const teams = sequelize.define('teams', {
     name: DataTypes.STRING,
     position: DataTypes.STRING,
     order: DataTypes.INTEGER,
     image_url: DataTypes.TEXT,
+  }, {
+    tableName: 'teams',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
   });
-  teams.associate = function(models) {
-    teams.hasMany(models.socialMedia, {
-      foreignKey: 'social_media_id',
-      as: 'social_media',
-    });
-  };
+  teams.beforeCreate((t) => t.id = uuidv4());
   return teams;
 };

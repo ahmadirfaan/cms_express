@@ -1,5 +1,10 @@
-export default (sequelize, DataTypes) => {
-  const relCategoryNews = sequelize.define('rel_category_news', {});
+const {v4: uuidv4} = require('uuid');
+module.exports = (sequelize) => {
+  const relCategoryNews = sequelize.define('rel_category_news', {}, {
+    tableName: 'rel_category_news',
+    createdAt: 'created_at',
+    updatedAt: 'updated_at',
+  });
   relCategoryNews.associate = function(models) {
     relCategoryNews.hasMany(models.category, {
       foreignKey: 'category_id',
@@ -10,5 +15,6 @@ export default (sequelize, DataTypes) => {
       as: 'news',
     });
   };
+  relCategoryNews.beforeCreate((r) => r.id = uuidv4());
   return relCategoryNews;
 };

@@ -22,9 +22,9 @@ module.exports = {
       socialMediaId: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        onDelete: 'CASCADE',
+        foreignKey: true,
         references: {
-          model: 'socialMedia',
+          model: 'social_media',
           Key: 'id',
           as: 'socialMediaId',
         },
@@ -39,7 +39,7 @@ module.exports = {
       },
     });
   },
-  down: function(migration, DataTypes, done) {
-    return migration.dropTable('teams');
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('slider');
   },
 };

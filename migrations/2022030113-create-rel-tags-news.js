@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('rel_tags_news', {
       id: {

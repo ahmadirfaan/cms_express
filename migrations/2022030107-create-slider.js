@@ -16,14 +16,14 @@ module.exports = {
       order: {
         type: Sequelize.INTEGER,
       },
-      imageUrl: {
+      image_url: {
         type: Sequelize.TEXT,
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

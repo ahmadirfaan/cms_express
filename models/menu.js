@@ -3,6 +3,6 @@ export default (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     url: DataTypes.TEXT,
     order: DataTypes.INTEGER,
-    parentId: DataTypes.STRING,
+    parent_id: DataTypes.STRING,
   });
 };

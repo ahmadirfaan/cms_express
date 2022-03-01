@@ -16,41 +16,11 @@ module.exports = {
       body: {
         type: Sequelize.TEXT,
       },
-      tagsId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'tags',
-          Key: 'id',
-          as: 'tagsId',
-        },
-      },
-      keywordId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'keyword',
-          Key: 'id',
-          as: 'keywordId',
-        },
-      },
-      categoryId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'category',
-          Key: 'id',
-          as: 'categoryId',
-        },
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

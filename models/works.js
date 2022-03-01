@@ -3,7 +3,7 @@ export default (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     order: DataTypes.INTEGER,
-    imageUrl: DataTypes.TEXT,
-    workUrl: DataTypes.TEXT,
+    image_url: DataTypes.TEXT,
+    work_url: DataTypes.TEXT,
   });
 };

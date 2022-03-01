@@ -19,21 +19,11 @@ module.exports = {
       slug: {
         type: Sequelize.TEXT,
       },
-      keywordId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'keyword',
-          Key: 'id',
-          as: 'keywordId',
-        },
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

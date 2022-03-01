@@ -16,24 +16,14 @@ module.exports = {
       order: {
         type: Sequelize.INTEGER,
       },
-      imageUrl: {
+      image_url: {
         type: Sequelize.TEXT,
       },
-      socialMediaId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
-        foreignKey: true,
-        references: {
-          model: 'social_media',
-          Key: 'id',
-          as: 'socialMediaId',
-        },
-      },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE,
       },

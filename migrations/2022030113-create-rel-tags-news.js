@@ -1,25 +1,31 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('menu', {
+    return queryInterface.createTable('rel_tags_news', {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      name: {
-        type: Sequelize.STRING,
-      },
-      url: {
-        type: Sequelize.TEXT,
-      },
-      order: {
-        type: Sequelize.INTEGER,
-      },
-      parent_id: {
+      tags_id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         onDelete: 'CASCADE',
+        references: {
+          model: 'tags',
+          Key: 'id',
+          as: 'tags_id',
+        },
+      },
+      news_id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'news',
+          Key: 'id',
+          as: 'news_id',
+        },
       },
       created_at: {
         allowNull: false,
@@ -32,6 +38,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('menu');
+    return queryInterface.dropTable('rel_tags_news');
   },
 };

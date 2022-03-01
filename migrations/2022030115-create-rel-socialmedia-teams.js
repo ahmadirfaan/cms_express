@@ -37,7 +37,7 @@ module.exports = {
       },
     });
   },
-  down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('rel_keyword_pages');
+  down: function(queryInterface) {
+    return queryInterface.dropTable('rel_socialmedia_teams');
   },
 };

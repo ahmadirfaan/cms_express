@@ -32,7 +32,7 @@ module.exports = {
       },
     });
   },
-  down: function(migration, DataTypes, done) {
-    return migration.dropTable('works').done(done);
+  down: function(queryInterface) {
+    return queryInterface.dropTable('works');
   },
 };

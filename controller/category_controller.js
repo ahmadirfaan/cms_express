@@ -4,9 +4,13 @@ const responseFormat = require('../helper/response_format.js');
 module.exports = {
   postCategory(req, res) {
     return categoryUseCase.createCategory(req)
-        .then((category) => res.status(201).json(responseFormat.build(
-            category, 'Berhasil membuat category', '201',
-        )))
+        .then((category) => {
+          delete category.dataValues.created_at;
+          delete category.dataValues.updated_at;
+          res.status(200).json(responseFormat.build(
+              category, 'Berhasil membuat category', '200',
+          ));
+        })
         .catch((error) => res.status(400).json(responseFormat.error(
             error, 400,
         )));

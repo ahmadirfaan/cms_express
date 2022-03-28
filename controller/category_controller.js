@@ -5,8 +5,6 @@ module.exports = {
   postCategory(req, res) {
     return categoryUseCase.createCategory(req)
         .then((category) => {
-          delete category.dataValues.created_at;
-          delete category.dataValues.updated_at;
           res.status(200).json(responseFormat.build(
               category, 'Berhasil membuat category', '200',
           ));
